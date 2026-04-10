@@ -137,12 +137,32 @@ The **space** between `.card-white` and `.list-inline` means "only target `.list
 
 ## How to run this project locally
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/dribbble-card.git
-   ```
-2. Open `index.html` in your browser 
+**1. Clone the repository**
 
+```bash
+git clone https://github.com/<your-username>/dribbble-card.git
+cd dribbble-card
+```
+
+**2. Start a local server**
+
+Inside the project folder, run:
+
+```bash
+serve
+```
+
+Then open your browser and go to the URL shown in your terminal (usually `http://localhost:3000`).
+
+**3. Workflow while coding**
+
+Every time you save a change in your editor, just go to the browser and hit **Cmd+R** (Mac) or **Ctrl+R** (Windows/Linux) to refresh the page and see your changes.
+
+---
+
+> **Why not just open index.html directly?**
+>
+> You *can* open `index.html` by double-clicking it, and for basic HTML it works fine. But as soon as your project uses `@import` in CSS, fetches fonts from Google, loads Font Awesome, or later when you use JavaScript — the browser blocks those requests when the file is opened directly from your filesystem (you'll see a `file://` URL in the address bar instead of `http://`). This is a browser security restriction called CORS. Running a local server avoids all of that and mimics how a real website works.
 
 ---
 
