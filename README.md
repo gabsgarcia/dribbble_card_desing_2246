@@ -16,6 +16,22 @@ A copycat of a [Dribbble](https://dribbble.com) card built with pure HTML and CS
 
 ---
 
+## 📐 Always draw before you code
+
+Before writing a single line of HTML, draw the structure of your component. HTML is just **boxes inside boxes** — if you can draw it, you can code it.
+
+This is the drawing for this project:
+
+![Card component structure](card-structure.png)
+
+Each box in the drawing becomes an HTML element with a class name. The nesting in the drawing becomes nesting in the code. Once you have this drawing, the HTML almost writes itself.
+
+**Use [Excalidraw](https://excalidraw.com)** — it's a free browser-based drawing tool, perfect for this kind of sketch. No account needed, just open it and start drawing boxes. It's what your instructors use during live coding sessions and what you'll see on whiteboards throughout the bootcamp.
+
+> 💡 This habit — draw first, code second — is not just for beginners. Professional developers do this every time they start a new component or feature. It forces you to think about structure before getting lost in syntax.
+
+---
+
 ## File structure
 
 ```

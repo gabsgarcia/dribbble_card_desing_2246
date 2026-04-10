@@ -1,57 +1,103 @@
+/* ==========================================================================
+   card.css — styles for the Dribbble card component
+   This file is imported by style.css and styles ONLY the card component.
+   ========================================================================== */
+ 
+
+/* --------------------------------------------------------------------------
+   .cards — the grid that holds multiple cards side by side
+   -------------------------------------------------------------------------- */
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;          /* flexbox: children (the cards) sit side by side  */
+  flex-wrap: wrap;        /* if cards don't fit in one row, wrap to next line */
+  justify-content: space-between; /* spread cards evenly with space between  */
 }
-
-
+ 
+ 
+/* --------------------------------------------------------------------------
+   .card-white — the main white card box
+   -------------------------------------------------------------------------- */
 .card-white {
-  background-color: white;
-    border: 1px solid rgb(240, 240, 240);
-    padding: 8px;
-    width: 250px;
+  background-color: white;              /* white background                  */
+  border: 1px solid rgb(240, 240, 240); /* very subtle light grey border     */
+  padding: 8px;                         /* 8px of space INSIDE the card on
+                                           all four sides (between content
+                                           and the border)                   */
+  width: 250px;                         /* fixed width — all cards same size */
 }
-
+ 
+ 
+/* --------------------------------------------------------------------------
+   .card-white-image — the image area inside the card
+   This is a <div> (not an <img>) so we can put a button inside it later.
+   -------------------------------------------------------------------------- */
 .card-white-image {
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 150px;
+  background-size: cover;       /* image fills the box completely;
+                                   crops if needed (no stretching/squashing) */
+  background-position: center;  /* crop from the center of the image,
+                                   not the top-left corner                   */
+  width: 100%;                  /* take the full width of .card-white        */
+  height: 150px;                /* ⚠️ divs are 0px tall by default!
+                                   always set a height when using
+                                   background-image or the div is invisible  */
 }
+ 
+ 
+/* --------------------------------------------------------------------------
+   .card-white .list-inline — the stats row (👁 views  💬 comments  ❤️ likes)
+   The space between .card-white and .list-inline is a "descendant selector":
+   it means "only target .list-inline elements that are INSIDE .card-white".
+   -------------------------------------------------------------------------- */
 
 .card-white .list-inline {
-    color: #B0B0B0;
-    text-align: right;
-    padding-top: 8px;
+  color: #B0B0B0;       /* light grey — secondary info, not the main focus   */
+  text-align: right;    /* push the stats to the right side of the card      */
+  padding-top: 8px;     /* space between the image above and the stats       */
 }
-
-
+ 
+ 
+/* --------------------------------------------------------------------------
+   .card-user — the row below the card (avatar + username)
+   -------------------------------------------------------------------------- */
 .card-user {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
+  margin-top: 8px;      /* space between the white card above and this row   */
+  display: flex;        /* flexbox on! avatar and username sit side by side   */
+  align-items: center;  /* vertically center them so text isn't at the top   */
 }
-
+ 
 .card-user a {
-  color: #4B94BD;
+  color: #4B94BD;       /* blue link color for the username                  */
 }
-
+ 
 .card-user a:hover {
-  color: #3F7EA3;
+  color: #3F7EA3;       /* slightly darker blue when hovering the username   */
 }
-
-
+ 
+ 
+/* --------------------------------------------------------------------------
+   .avatar — the circular profile picture
+   -------------------------------------------------------------------------- */
 .avatar {
-  border-radius: 50%;
-  width: 30px;
-  margin-right: 8px;
+  border-radius: 50%;   /* turns any square element into a circle         */
+  width: 30px;          /* fixed size so all avatars look the same           */
+  margin-right: 8px;    /* gap between the avatar circle and the username    */
 }
-
+ 
+ 
+/* --------------------------------------------------------------------------
+   Hover effect — the "Save" button hidden by default, revealed on hover
+   -------------------------------------------------------------------------- */
+ 
+/* By default, the button is invisible (but still in the page) */
 .card-white .btn {
-    opacity: 0;
-    transition: .3s;
+  opacity: 0;       /* 0 = fully invisible. Different from display:none —
+                       the element is still there, just see-through.
+                       This lets us animate the reveal smoothly.             */
+  transition: .3s;  /* any property that changes will animate over 0.3s      */
 }
-
+ 
+/* When the mouse hovers over the card, make the button visible */
 .card-white:hover .btn {
-    opacity: 1;
+  opacity: 1;       /* 1 = fully visible. Combined with transition: .3s
+                       above, this creates a smooth fade-in effect           */
 }

@@ -1,21 +1,53 @@
-/* --- Google Fonts --- */
+/* ==========================================================================
+   style.css — the main stylesheet
+   This is the ONLY CSS file linked in index.html. It imports all the other
+   CSS files and defines global styles that apply to the whole page.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   @import — loading external resources
+   @import must always be at the very top of the file, before any other CSS.
+   -------------------------------------------------------------------------- */
+
+/* Google Fonts — loads two font families from the web:
+   - Open Sans: used for body text (readable, clean)
+   - Poppins:   used for headings (bolder, more impactful)
+   The numbers after wght@ are the font weights we want to load
+   (300 = light, 400 = regular, 700 = bold)                                  */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Poppins:wght@400;700");
+
+/* Font Awesome — a library of icons you can use as HTML tags
+   e.g. <i class="fas fa-heart"></i> renders a heart icon ❤️                */
 @import url("https://use.fontawesome.com/releases/v6.1.2/css/all.css");
+
+/* Our own component CSS files — this is the key organisational pattern:
+   style.css is the "table of contents" that loads all component files.
+   HTML only needs to know about style.css; it gets everything else for free. */
 @import url("components/card.css");
 @import url("components/button.css");
 
-/* --- Fonts --- */
+
+/* --------------------------------------------------------------------------
+   body — global styles that cascade down to every element on the page
+   -------------------------------------------------------------------------- */
 body {
   font-family: "Open Sans", "Helvetica", "sans-serif";
-  padding-bottom: 200px;
-  margin: 0;
-  background: #F4F4F4;
+  /* Font stack: try Open Sans first. If it's not available, try Helvetica.
+     If that's not available either, use whatever sans-serif font the
+     browser has. Always have a fallback.                                     */
+
+  padding-bottom: 200px; /* space at the bottom so content isn't cramped     */
+  margin: 0;             /* browsers add default margins — we reset to 0     */
+  background: #F4F4F4;   /* very light grey page background                  */
 }
 
+/* Headings use Poppins — a stronger, more display-oriented font */
 h1, h2, h3 {
   font-family: "Poppins", "sans-serif";
 }
 
+/* Remove underlines from links by default */
 a {
   text-decoration: none;
 }
@@ -24,21 +56,32 @@ a:hover {
   text-decoration: none;
 }
 
+
+/* --------------------------------------------------------------------------
+   Utility classes — small reusable helpers that do one specific thing.
+   You can add these classes to any HTML element that needs them.
+   -------------------------------------------------------------------------- */
+
+/* Centers a block of content horizontally on the page */
 .container {
-  margin: 0 auto;
-  max-width: 900px;
+  margin: 0 auto;    /* auto left + right margins = centered horizontally    */
+  max-width: 900px;  /* won't stretch wider than 900px on large screens      */
 }
 
+/* Centers text inside an element */
 .text-center {
   text-align: center;
 }
 
+/* Makes a <ul> horizontal (items side by side) instead of vertical */
 .list-inline {
-  list-style: none;
-  padding-left: 0px;
-  margin: 0;
+  list-style: none;  /* removes bullet points                                */
+  padding-left: 0;   /* removes the default left indent browsers add to <ul> */
+  margin: 0;         /* removes default top/bottom margin on <ul>            */
 }
 
+/* Each <li> inside a .list-inline sits next to its siblings like a word in
+   a sentence, instead of stacking on a new line                             */
 .list-inline li {
   display: inline-block;
 }

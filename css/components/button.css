@@ -1,15 +1,34 @@
+/* ==========================================================================
+   button.css — styles for the .btn component
+   Kept in its own file so this button style can be reused anywhere on the
+   site without copying and pasting CSS.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   .btn — the default button style
+   -------------------------------------------------------------------------- */
 .btn {
-    background: white;
-    border: 1px solid rgb(240, 240, 240);
-    border-radius: 4px;
-    color: gray;
-    padding: 4px 8px;
-    margin: 8px;
-    display: inline-block;
+  background: white;                    /* white fill                        */
+  border: 1px solid rgb(240, 240, 240); /* very subtle light grey border     */
+  border-radius: 4px;                   /* slightly rounded corners          */
+  color: gray;                          /* grey text by default              */
+  padding: 4px 8px;                     /* 4px top/bottom, 8px left/right    */
+  margin: 8px;                          /* space between the button and the
+                                           edges of its container            */
+  display: inline-block;                /* ⚠️ needed for <a> tags: makes
+                                           padding and margin work correctly.
+                                           Without this, vertical padding
+                                           is ignored on links.              */
 }
 
+
+/* --------------------------------------------------------------------------
+   .btn:hover — what the button looks like when the mouse is over it
+   :hover is a "pseudo-class" — it activates based on user interaction
+   -------------------------------------------------------------------------- */
 .btn:hover {
-  color:white;  
-  background: gray;
-  border: 5px solid black;
+  color: white;             /* text turns white on hover                     */
+  background: gray;         /* background turns grey on hover                */
+  border: 5px solid black;  /* border becomes thicker and black on hover     */
 }
